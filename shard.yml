@@ -1,0 +1,13 @@
+name: crlox
+version: 0.1.0
+
+authors:
+  - Rebecca Buckingham <rebecca.buckingham@icloud.com>
+
+targets:
+  crlox:
+    main: src/crlox.cr
+
+crystal: 0.23.1
+
+license: MIT
