@@ -105,14 +105,12 @@ module CrLox
 
             # see if the identifier is a reserved word
             text = @source[@start...@current]
-
             if KEYWORDS.has_key?(text)
                 token_type = KEYWORDS[text]
+                addToken(token_type)
             else
                 addToken(TokenType::IDENTIFIER)
             end
-
-            addToken(TokenType::IDENTIFIER)
         end
 
         def isAlpha(c)
