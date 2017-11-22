@@ -1,6 +1,9 @@
-# crafting_interpreters
+# crlox - Examples from Crafting Interpreters coded in Crystal 
 
-TODO: Write a description here
+Examples from Crafting Interpreters by Bob Nystrom coded in Crystal
+
+www.craftinginterpreters.com
+crystal-lang.org
 
 ## Installation
 
