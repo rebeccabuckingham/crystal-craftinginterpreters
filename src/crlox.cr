@@ -41,7 +41,7 @@ module CrLox
 
     def run(source : String)
       scanner = Scanner.new(source)
-      tokens = scanner.scanTokens()         # ???
+      tokens = scanner.scanTokens()         
 
       # for now, just print the tokens
       tokens.each do |token|
