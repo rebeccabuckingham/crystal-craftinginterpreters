@@ -1,25 +1,13 @@
-# crlox - Examples from Crafting Interpreters coded in Crystal 
+# crystal-craftinginterpreters - Examples from Crafting Interpreters coded in Crystal 
 
-Examples from Crafting Interpreters by Bob Nystrom coded in Crystal
+Examples from Crafting Interpreters by Bob Nystrom coded/translated in Crystal
 
-www.craftinginterpreters.com
-crystal-lang.org
-
-## Installation
-
-TODO: Write installation instructions here
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
+www.craftinginterpreters.com / https://github.com/munificent/craftinginterpreters
+https://crystal-lang.org
 
 ## Contributing
 
-1. Fork it ( https://github.com/[your-github-name]/crafting_interpreters/fork )
+1. Fork it ( https://github.com/rebeccabuckingham/crystal-craftinginterpreters/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -27,4 +15,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Rebecca Buckingham - creator, maintainer
+- [rebeccabuckingham] (https://github.com/rebeccabuckingham) Rebecca Buckingham - creator, maintainer
