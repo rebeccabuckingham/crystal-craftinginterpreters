@@ -1,0 +1,6 @@
+version: 1.0
+shards:
+  linked_list:
+    git: https://github.com/abvdasker/crystal-linked-list.git
+    commit: 92f2e350aee9ae1f6ac70fdbcf3078fdc9e4ee93
+

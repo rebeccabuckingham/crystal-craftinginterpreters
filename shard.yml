@@ -8,6 +8,10 @@ targets:
   crlox:
     main: src/crlox.cr
 
+dependencies:
+  linked_list:
+    git: https://github.com/abvdasker/crystal-linked-list.git
+
 crystal: 0.23.1
 
 license: MIT
