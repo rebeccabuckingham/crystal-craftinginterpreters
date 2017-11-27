@@ -1,15 +1,14 @@
 module CrLox
-
-    abstract class Expr
-    end
-
+  abstract class Expr
     class Binary < Expr
       property :left
       property :operator
       property :right
+
       @left : Expr
       @operator : Token
       @right : Expr
+
       def initialize(left : Expr, operator : Token, right : Expr)
         @left = left
         @operator = operator
@@ -20,10 +19,11 @@ module CrLox
         visitor.visitBinaryExpr(self)
       end
     end
-
     class Grouping < Expr
       property :expression
+
       @expression : Expr
+
       def initialize(expression : Expr)
         @expression = expression
       end
@@ -32,10 +32,11 @@ module CrLox
         visitor.visitGroupingExpr(self)
       end
     end
-
     class Literal < Expr
       property :value
+
       @value : LiteralType
+
       def initialize(value : LiteralType)
         @value = value
       end
@@ -44,12 +45,13 @@ module CrLox
         visitor.visitLiteralExpr(self)
       end
     end
-
     class Unary < Expr
       property :operator
       property :right
+
       @operator : Token
       @right : Expr
+
       def initialize(operator : Token, right : Expr)
         @operator = operator
         @right = right
@@ -59,4 +61,5 @@ module CrLox
         visitor.visitUnaryExpr(self)
       end
     end
+  end
 end

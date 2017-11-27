@@ -1,14 +1,14 @@
 require "./tool/*"
 
+TAB="  "
+
 module Tool
     # it might be better to do this with Crystal's macro capabilities
 
     def defineAst(outputDir : String, baseName : String, types : Array(String))
         File.open("#{outputDir}/#{baseName.downcase}.cr", "w") do |writer|
             writer.puts "module CrLox"
-            writer.puts ""
-            writer.puts "    abstract class #{baseName}"
-            writer.puts "    end"
+            writer.puts "#{TAB}abstract class #{baseName}"
 
             types.each do |type|
                 className = type.split(":")[0].strip
@@ -16,26 +16,31 @@ module Tool
                 defineType(writer, baseName, className, fields)
             end
 
+            writer.puts "#{TAB}end"
             writer.puts "end"
         end 
     end
 
     def defineType(writer, baseName, className, fieldList)
-        writer.puts ""
-        writer.puts "    class #{className} < #{baseName}"
+        # writer.puts ""
+        writer.puts "#{TAB}#{TAB}class #{className} < #{baseName}"
 
         # fields
         fields = fieldList.split(", ")
         fields.each do |field|
             fieldInfo = field.split(" ")
-            writer.puts "      property :#{fieldInfo[1]}" 
+            writer.puts "#{TAB}#{TAB}#{TAB}property :#{fieldInfo[1]}" 
         end
         
+        writer.puts ""
+
         fields = fieldList.split(", ")
         fields.each do |field|
             fieldInfo = field.split(" ")
-            writer.puts "      @#{fieldInfo[1]} : #{fieldInfo[0]}" 
+            writer.puts "#{TAB}#{TAB}#{TAB}@#{fieldInfo[1]} : #{fieldInfo[0]}" 
         end        
+
+        writer.puts ""
 
         # constructor
         # need to rearrange things a bit so fields are in the format 'name : Type'
@@ -45,22 +50,22 @@ module Tool
             split_field = field.split(" ")
             fieldStr += "#{split_field[1]} : #{split_field[0]}"
         end
-        writer.puts "      def initialize(#{fieldStr})"
+        writer.puts "#{TAB}#{TAB}#{TAB}def initialize(#{fieldStr})"
 
         fields.each do |field|
             name = field.split(" ")[1]
-            writer.puts "        @#{name} = #{name}"
+            writer.puts "#{TAB}#{TAB}#{TAB}#{TAB}@#{name} = #{name}"
         end
-        writer.puts "      end"
+        writer.puts "#{TAB}#{TAB}#{TAB}end"
 
         # visitor pattern
         # TODO Visitor<R> isn't the right syntax for Crystal
         writer.puts ""
-        writer.puts "      def accept(visitor)"
-        writer.puts "        visitor.visit#{className}#{baseName}(self)"
-        writer.puts "      end"
+        writer.puts "#{TAB}#{TAB}#{TAB}def accept(visitor)"
+        writer.puts "#{TAB}#{TAB}#{TAB}#{TAB}visitor.visit#{className}#{baseName}(self)"
+        writer.puts "#{TAB}#{TAB}#{TAB}end"
 
-        writer.puts "    end"
+        writer.puts "#{TAB}#{TAB}end"
     end
 end
 
