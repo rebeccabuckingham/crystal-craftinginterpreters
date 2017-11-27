@@ -10,8 +10,7 @@ module CrLox
       @left : Expr
       @operator : Token
       @right : Expr
-      #def initialize(left : Expr, operator : Token, right : Expr)
-      def initialize(left, operator, right)
+      def initialize(left : Expr, operator : Token, right : Expr)
         @left = left
         @operator = operator
         @right = right
@@ -36,8 +35,8 @@ module CrLox
 
     class Literal < Expr
       property :value
-      @value : LiteralType # was Object
-      def initialize(value : LiteralType) # was Object
+      @value : LiteralType
+      def initialize(value : LiteralType)
         @value = value
       end
 
@@ -60,5 +59,4 @@ module CrLox
         visitor.visitUnaryExpr(self)
       end
     end
-    end
-#end
+end

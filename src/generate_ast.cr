@@ -4,7 +4,7 @@ module Tool
     # it might be better to do this with Crystal's macro capabilities
 
     def defineAst(outputDir : String, baseName : String, types : Array(String))
-        File.open("#{outputDir}/#{baseName}.cr", "w") do |writer|
+        File.open("#{outputDir}/#{baseName.downcase}.cr", "w") do |writer|
             writer.puts "module CrLox"
             writer.puts ""
             writer.puts "    abstract class #{baseName}"
