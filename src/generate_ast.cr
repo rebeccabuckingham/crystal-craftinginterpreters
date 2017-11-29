@@ -59,7 +59,6 @@ module Tool
         writer.puts "#{TAB}#{TAB}#{TAB}end"
 
         # visitor pattern
-        # TODO Visitor<R> isn't the right syntax for Crystal
         writer.puts ""
         writer.puts "#{TAB}#{TAB}#{TAB}def accept(visitor)"
         writer.puts "#{TAB}#{TAB}#{TAB}#{TAB}visitor.visit#{className}#{baseName}(self)"
