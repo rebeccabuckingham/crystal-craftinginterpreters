@@ -1,4 +1,4 @@
-require "./Expr"
+require "./expr"
 require "./*"
 
 module CrLox
